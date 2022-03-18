@@ -47,6 +47,6 @@ def random_number():
 if __name__ == "__main__":
     thread = Thread(target=random_number)
     thread.start()
-    app.run("localhost", 3000)
-    # http_server = WSGIServer(("127.0.0.1", 3000), app)
-    # http_server.serve_forever()
+    #app.run("localhost", 3000)
+    http_server = WSGIServer(("127.0.0.1", 3000), app)
+    http_server.serve_forever()
