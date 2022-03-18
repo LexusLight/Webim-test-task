@@ -34,6 +34,9 @@ def stream():
 
     return Response(respond_to_client(), mimetype='text/event-stream')
 
+@app.route("/test")
+def test():
+    return number
 
 # Функция, которая каждые 5 секунд генерит число-хекс в своём потоке
 def random_number():
