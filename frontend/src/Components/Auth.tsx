@@ -1,16 +1,30 @@
-import React, {useState} from "react";
-import {Button,Paper, Typography} from "@mui/material";
-import {appCard, appContent} from "./Styles";
+import React, {useEffect, useState} from "react";
+import {Button, Paper, Typography} from "@mui/material";
+import {appCard} from "./Styles";
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { GithubAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import {firebaseConfig} from "./Firebase";
 
 /*
     Данный компонент отвечает за авторизацию.
-    Интерфейс под пропы не писал, т.к. всего два аргумента
+    Интерфейс под пропы не писал, т.к. один аргумент
 */
 const Auth = (props:any) => {
 
-    const logIn = () => {
+    //Подключение к Firebase
+    const app = initializeApp(firebaseConfig);
+    const provider = new GithubAuthProvider();
+    const  githubAuth = () => {
+        const auth = getAuth(app);
+        signInWithPopup(auth,provider).then((res)=>{
+            props.saveAuth(res.user.displayName);
+            return
+        })
+    }
 
+    const logIn = () => {
+        githubAuth();
     }
 
     return(

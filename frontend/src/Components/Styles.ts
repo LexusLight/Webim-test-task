@@ -11,7 +11,7 @@ const appContent = {
     position:"absolute",
     height:"100%",
     width:"100%",
-    backgroundColor: "#3a2e3d",
+    backgroundColor: "#1a1a1a",
     }
 
 const appCard = {
