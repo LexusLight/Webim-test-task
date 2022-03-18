@@ -12,7 +12,7 @@ monkey.patch_all()
 # Инициализируем сервер, решаем траблы с CORS-политикой
 app = Flask(__name__, static_folder='./index/build')
 CORS(app)
-number = ""
+number = "777"
 
 
 @app.route('/', defaults={'path': ''})
