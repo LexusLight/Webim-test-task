@@ -1,7 +1,6 @@
 import time
 import random
 
-print("I AM WORKING2")
 # Функция, которая каждые 5 секунд генерит число-хекс в своём потоке
 if __name__ == '__main__':
     while True:
