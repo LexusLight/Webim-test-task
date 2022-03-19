@@ -34,9 +34,7 @@ def stream():
     def respond_to_client():
         print("stream!")
         while True:
-            f = open('text.txt', 'r')
-            number = f.read()
-            f.close()
+            number = os.environ["NUMBER"]
             data = json.dumps({"number": number})
             yield f"data: {data} \n\n"
             time.sleep(1)
