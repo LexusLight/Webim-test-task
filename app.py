@@ -14,10 +14,6 @@ app = Flask(__name__, static_folder='./index/build')
 CORS(app)
 number = "777"
 
-@app.before_first_request
-def execute_this():
-    thread = Thread(target=random_number)
-    thread.start()
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -52,6 +48,8 @@ def random_number():
 
 #При запуске скрипта, создаётся поток для выдачи рандом номера, запускается листенер сервера.
 if __name__ == "__main__":
+    thread = Thread(target=random_number)
+    thread.start()
     #app.run("localhost", 3000)
     http_server = WSGIServer(("", 3000), app)
     http_server.serve_forever()
