@@ -34,7 +34,7 @@ def stream():
     def respond_to_client():
         print("stream!")
         while True:
-            number = os.environ["NUMBER"]
+            number = os.environ.get("NUMBER")
             data = json.dumps({"number": number})
             yield f"data: {data} \n\n"
             time.sleep(1)
