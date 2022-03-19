@@ -45,11 +45,11 @@ def random_number():
         time.sleep(5.0)
         number = random.randint(100000, 999999)
 
-
+thread = Thread(target=random_number)
+thread.start()
+        
 #При запуске скрипта, создаётся поток для выдачи рандом номера, запускается листенер сервера.
 if __name__ == "__main__":
-    thread = Thread(target=random_number)
-    thread.start()
     #app.run("localhost", 3000)
     http_server = WSGIServer(("", 3000), app)
     http_server.serve_forever()
