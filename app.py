@@ -32,6 +32,7 @@ def serve(path):
 @app.route("/stream")
 def stream():
     def respond_to_client():
+        print("stream!")
         while True:
             f = open('text.txt', 'r')
             number = f.read()
