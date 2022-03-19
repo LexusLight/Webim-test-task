@@ -45,5 +45,5 @@ def stream():
 
 if __name__ == "__main__":
     #app.run("localhost", 3000)
-    http_server = WSGIServer(("localhost", 3000), app)
+    http_server = WSGIServer(("", 3000), app)
     http_server.serve_forever()
