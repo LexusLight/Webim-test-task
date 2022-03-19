@@ -35,6 +35,7 @@ def stream():
         while True:
             f = open('text.txt', 'r')
             number = f.read()
+            data = json.dumps({"number": number})
             yield f"data: {data} \n\n"
             time.sleep(1)
     return Response(respond_to_client(), mimetype='text/event-stream')
