@@ -9,3 +9,4 @@ if __name__ == '__main__':
         number = str(random.randint(100000, 999999))
         f = open('text.txt', 'w')
         f.write(number)
+        f.close()
