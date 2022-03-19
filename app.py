@@ -38,7 +38,7 @@ def stream():
             data = json.dumps({"number": number})
             yield f"data: {data} \n\n"
             r = open('text.txt', 'w')
-            r.write(1+number)
+            r.write(str(1+number))
             time.sleep(1)
     return Response(respond_to_client(), mimetype='text/event-stream')
 
