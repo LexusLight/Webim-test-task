@@ -10,7 +10,7 @@ cur = conn.cursor()
 
 def create_table():
     commands = ("CREATE TABLE numbers ( id SERIAL PRIMARY KEY, number VARCHAR(255))",
-                "INSERT INTO numbers(id, number) VALUES(1, 777)")
+                "INSERT INTO numbers(id, number) VALUES(1, '777')")
     cur.execute(commands)
     print("Created!")
 
