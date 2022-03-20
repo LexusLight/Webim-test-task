@@ -9,19 +9,20 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor()
 
 def create_table():
-    commands = "CREATE TABLE numbers ( id SERIAL PRIMARY KEY, number VARCHAR(255))"
-    cur.execute(commands)
+    query = "CREATE TABLE numbers ( id SERIAL PRIMARY KEY, number VARCHAR(255))"
+    cur.execute(query)
 
-    commands = "INSERT INTO numbers(id, number) VALUES(1, '777')"
-    cur.execute(commands)
-
+    query = "INSERT INTO numbers(id, number) VALUES(1, '777')"
+    cur.execute(query)
     print("Created!")
+    print(get_number())
 
 def update_number(num):
     query = "UPDATE numbers SET number={} WHERE id=1".format(num)
 
 def get_number():
     query = "SELECT number FROM numbers WHERE id=1"
+    return cur.execute(query)
 
 number = "1"
 
