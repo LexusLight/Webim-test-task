@@ -23,7 +23,9 @@ def update_number(num):
 def get_number():
     query = "SELECT number FROM numbers WHERE id=1"
     cur.execute(query)
-    return cur.fetchall()
+    num = cur.fetchall()
+    num = num[0][0]
+    return num
 
 number = "1"
 
