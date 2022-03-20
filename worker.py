@@ -10,6 +10,7 @@ cur = conn.cursor()
 def connect():
     DATABASE_URL = os.environ['DATABASE_URL']
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    global cur
     cur = conn.cursor()
 
 
@@ -23,6 +24,7 @@ def create_table():
 
 def update_number(num):
     query = "UPDATE numbers SET number={} WHERE id=1".format(num)
+    cur.execute(query)
 
 def get_number():
     query = "SELECT number FROM numbers WHERE id=1"
