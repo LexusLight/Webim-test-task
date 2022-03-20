@@ -5,6 +5,7 @@ from flask import Flask, Response, send_from_directory
 from flask_cors import CORS
 from gevent import monkey
 from gevent.pywsgi import WSGIServer
+import worker
 monkey.patch_all()
 
 # Инициализируем сервер, решаем траблы с CORS-политикой
@@ -31,7 +32,7 @@ def serve(path):
 @app.route("/stream")
 def stream():
     def respond_to_client():
-        print("stream!")
+        number = worker.get_number()
         while True:
             data = json.dumps({"number": number})
             yield f"data: {data} \n\n"

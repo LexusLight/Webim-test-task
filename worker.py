@@ -11,7 +11,6 @@ cur = conn.cursor()
 def create_table():
     query = "CREATE TABLE numbers (id INTEGER PRIMARY KEY, number VARCHAR(255))"
     cur.execute(query)
-
     query = "INSERT INTO numbers(id, number) VALUES(1, '777')"
     cur.execute(query)
     print("Created!")
@@ -35,3 +34,4 @@ if __name__ == '__main__':
     while True:
         time.sleep(5.0)
         number = str(random.randint(100000, 999999))
+        update_number(number)
