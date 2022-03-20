@@ -21,8 +21,9 @@ def update_number(num):
     query = "UPDATE numbers SET number={} WHERE id=1".format(num)
 
 def get_number():
-    query = "SELECT (number) FROM numbers WHERE id=1"
-    return cur.execute(query)
+    query = "SELECT number FROM numbers WHERE id=1"
+    cur.execute(query)
+    return cur.fetchall()
 
 number = "1"
 
