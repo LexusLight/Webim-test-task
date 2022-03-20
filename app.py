@@ -11,7 +11,6 @@ monkey.patch_all()
 app = Flask(__name__, static_folder='./index/build')
 CORS(app)
 
-
 # Раздача статики
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -34,7 +33,6 @@ def stream():
     def respond_to_client():
         print("stream!")
         while True:
-            number = os.environ.get("NUMBER")
             data = json.dumps({"number": number})
             yield f"data: {data} \n\n"
             time.sleep(1)
