@@ -9,7 +9,7 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor()
 
 def create_table():
-    query = "CREATE TABLE numbers (id NUMBER PRIMARY KEY, number VARCHAR(255))"
+    query = "CREATE TABLE numbers (id INTEGER PRIMARY KEY, number VARCHAR(255))"
     cur.execute(query)
 
     query = "INSERT INTO numbers(id, number) VALUES(1, '777')"
