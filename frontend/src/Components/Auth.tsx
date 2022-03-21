@@ -12,7 +12,7 @@ import {firebaseConfig} from "./Firebase";
 */
 const Auth = (props:any) => {
 
-    //Подключение к Firebase
+    //Подключение к Firebase. Минуем наш сервер.
     const app = initializeApp(firebaseConfig);
     const provider = new GithubAuthProvider();
     const  githubAuth = () => {

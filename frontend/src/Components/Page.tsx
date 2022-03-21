@@ -15,7 +15,7 @@ const Page = (props:any) => {
     const logOut = () => {
         props.exitAuth();
     }
-    //При загркзке устанавливаем одно соединение с потоком событий.
+    //При загркзке устанавливаем одно соединение с SSE в хуке.
     useEffect(()=>{
         const sse = new EventSource("/stream")
         const handleStream = (e:any) => {

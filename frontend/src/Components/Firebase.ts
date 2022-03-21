@@ -1,4 +1,4 @@
-//конфиг подключения к Firebase.
+//конфиг подключения к Firebase. Через него мы проворачиваем Oauth2
 const firebaseConfig = {
     apiKey: "AIzaSyCvvqF8ElhVe9EUwfFSI4kvXOWKgesvUW0",
     authDomain: "webim-test-task.firebaseapp.com",

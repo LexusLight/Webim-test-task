@@ -5,7 +5,7 @@ import Auth from "./Auth";
 import {appContent} from "./Styles";
 
 
-//Головной компонент. Здесь мы храним методы. Дополнительные модули убраны для простоты.
+//Головной компонент. Здесь мы храним методы для работы над state. Дополнительные модули убраны для простоты.
 const App = () => {
     const [displayName, setDisplayName] = useState("")
 
