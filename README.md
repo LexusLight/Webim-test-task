@@ -9,6 +9,7 @@
 * Frontend - React + Material UI
 * Backend - Flask
 * Метод сообщения - Server Sent Event
+* Авторизация - через Firebase
 
 ## Результат:
 ![gif](https://i.imgur.com/DTyTmqd.gif)
