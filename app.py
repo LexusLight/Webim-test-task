@@ -1,21 +1,16 @@
 import json
 import time
 import os
-
-import psycopg2
 from flask import Flask, Response, send_from_directory
 from flask_cors import CORS
 from gevent import monkey
 from gevent.pywsgi import WSGIServer
-import worker
 monkey.patch_all()
 
 # Инициализируем сервер, решаем траблы с CORS-политикой
 app = Flask(__name__, static_folder='./index/build')
 CORS(app)
-DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-cur = conn.cursor()
+
 
 # Раздача статики
 @app.route('/', defaults={'path': ''})
@@ -26,12 +21,11 @@ def serve(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
+
 def get_number():
-    query = "SELECT number FROM numbers WHERE id=1"
-    cur.execute(query)
-    num = cur.fetchall()
-    num = num[0][0]
-    return num
+    # Тут было получение в числа по ключю в Redis.
+    return
+
 
 @app.route("/stream")
 def stream():
@@ -45,7 +39,6 @@ def stream():
 
 
 if __name__ == "__main__":
-    #app.run("localhost", 3000)
-    connect()
+    # app.run("localhost", 3000)
     http_server = WSGIServer(("", 3000), app)
     http_server.serve_forever()
