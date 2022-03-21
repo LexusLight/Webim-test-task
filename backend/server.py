@@ -1,4 +1,7 @@
 import random
+import os
+import json
+import time
 from flask import Flask, Response, send_from_directory
 from flask_cors import CORS
 from gevent import monkey
@@ -8,7 +11,6 @@ monkey.patch_all()
 # Инициализируем сервер, решаем траблы с CORS-политикой
 app = Flask(__name__, static_folder='./index/build')
 CORS(app)
-number = ""
 
 # Раздача реакт-статики
 @app.route('/', defaults={'path': ''})
